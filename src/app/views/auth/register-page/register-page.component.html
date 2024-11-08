@@ -1,1 +1,30 @@
-<p>register-page works!</p>
+<div>
+    <div>
+        <h1>Bienvenido a HERP</h1>
+        <h2>Por aqui puedes empezar</h2>
+    </div>
+    <div>
+        <form (submit)="registrar()" [formGroup]="formRegistro">
+            <div>
+                <label>Nombre</label>
+                <input formControlName="nombre" type="text" name="nombre">
+            </div>
+            <div>
+                <label>email</label>
+                <input formControlName="email" type="email" name="email">
+            </div>
+            <div>
+                <label>Contraseña</label>
+                <input formControlName="contrasena" type="password" name="contrasena">
+            </div>
+            <div>
+                <label>Confirmar Contraseña</label>
+                <input formControlName="confirmarContrasena" type="password" name="confirmarContrasena">
+            </div>
+
+            <div>
+                <button type="submit" >Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { LoginRequest } from '../models/login-request';
-import { Token } from '../models/token';
+import { TokenResponse } from '../models/token';
 import { Observable } from 'rxjs';
 import { CrearUsuario } from '../models/usuario';
 
@@ -13,10 +13,10 @@ export class AuthService {
   private http = inject(HttpClient);
   private baseUrl = 'http://localhost:3000';
   private loginUrl = `${this.baseUrl}/auth/login`;
-  private registroUrl = `${this.baseUrl}/auth/registro`;
+  private registroUrl = `${this.baseUrl}/auth/register`;
 
-  login(credenciales: LoginRequest): Observable<Token> {
-    return this.http.post<Token>(this.loginUrl, credenciales);
+  login(credenciales: LoginRequest): Observable<TokenResponse> {
+    return this.http.post<TokenResponse>(this.loginUrl, credenciales);
   }
 
   registro(nuevoUsuario: CrearUsuario): Observable<any> {

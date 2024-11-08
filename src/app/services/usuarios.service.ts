@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { ActualizarUsuario, CrearUsuario, Usuario } from '../models/usuario';
 import { Observable } from 'rxjs';
-import { Token } from '../models/token';
 
 @Injectable({
   providedIn: 'root'

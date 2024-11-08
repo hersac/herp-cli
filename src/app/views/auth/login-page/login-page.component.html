@@ -1,1 +1,32 @@
-<p>login-page works!</p>
+<div>
+    <div>
+        <h1>HERP</h1>
+        <h3>EL ERP que tu negocio necesita</h3>
+    </div>
+    <div>
+        <form [formGroup]="formLogin" (submit)="ingresar()">
+            <div>
+                <label>Correo</label>
+                <input type="email" formControlName="email" placeholder="email" />
+            </div>
+            <div>
+                <label>Contraseña</label>
+                <input type="password" formControlName="contrasena" placeholder="password" /> 
+            </div>
+            <div>
+                <button type="submit">Iniciar Sesion</button>
+            </div>
+        </form>
+        <p>
+            <span>¿No tienes cuenta?</span>
+            <span>
+                <a [routerLink]="['/auth/register']">
+                    Registrate
+                </a>
+            </span>
+        </p>
+        <p> 
+            <a [routerLink]="['/auth/recuperar-contrasena']">Olvidé mi contraseña</a>
+        </p>
+    </div>
+</div>
