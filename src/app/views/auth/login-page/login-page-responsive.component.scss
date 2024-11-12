@@ -1,0 +1,34 @@
+@import "../../../../styles/variables.scss";
+@import "./login-page.component.scss";
+
+@media (max-width: 600px) {
+  .loginView {
+    &__content {
+      width: 100%;
+      margin: 10%;
+      padding: 10px;
+
+      &__contentTitles {
+        &__title {
+        }
+
+        &__subtitle {
+        }
+      }
+
+      &__formContent {
+        &__form {
+          width: 100%;
+          &__correoContent {
+          }
+
+          &__contraseñaContent {
+          }
+
+          &__accesoContent {
+          }
+        }
+      }
+    }
+  }
+}

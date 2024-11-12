@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./styles/variables.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: $font-family-base;
+}
+
+input {
+  padding: $spacer-half;
+  border: none;
+  border-radius: $border-radius;
+  border: 1px solid $secondary-color;
+}
+
+button {
+  padding: $spacer-half $spacer;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  color: $background-color;
+}
+
+.btn-secondary {
+  background-color: $secondary-color;
+  color: $background-color;
+}
+
+.btn-success {
+  background-color: $success-color;
+  color: $background-color;
+}
+
+.btn-danger {
+  background-color: $danger-color;
+  color: $background-color;
+}
+
+.btn-warning {
+  background-color: $warning-color;
+  color: $background-color;
+}
+
+.btn-info {
+  background-color: $info-color;
+  color: $background-color;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+}
