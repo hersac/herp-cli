@@ -40,3 +40,8 @@ $box-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
 $transition-fast: 0.15s ease-in-out;
 $transition-normal: 0.3s ease-in-out;
 $transition-slow: 0.5s ease-in-out;
+
+// Breakpoints
+$screen-sm-max: 640px;
+$screen-lm-max: 720px;
+$screen-xm-max: 991px;

@@ -1,7 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { CrearUsuario } from '../../../models/usuario';
 import { catchError, map } from 'rxjs';
 
@@ -10,34 +15,35 @@ import { catchError, map } from 'rxjs';
   standalone: true,
   imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './register-page.component.html',
-  styleUrl: './register-page.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './register-page-responsive.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterPageComponent {
-
   private authService = inject(AuthService);
   private router = inject(Router);
   formRegistro: FormGroup = new FormBuilder().group({
     nombre: ['', Validators.required],
     email: ['', Validators.required],
     contrasena: ['', Validators.required],
-    confirmarContrasena: ['', Validators.required]
+    confirmarContrasena: ['', Validators.required],
   });
 
   registrar() {
-    if(this.formRegistro.invalid) {
+    if (this.formRegistro.invalid) {
       return;
     }
     const nuevoUsuario: CrearUsuario = this.formRegistro.value;
     console.log(nuevoUsuario);
-    this.authService.registro(nuevoUsuario).pipe(
-      map(() => {
-        this.router.navigate(['/auth/login']);
-      }),
-      catchError(error => {
-        throw new Error(`Error al registrar usuario: ${error}`)
-      }),
-    ).subscribe();
+    this.authService
+      .registro(nuevoUsuario)
+      .pipe(
+        map(() => {
+          this.router.navigate(['/auth/login']);
+        }),
+        catchError((error) => {
+          throw new Error(`Error al registrar usuario: ${error}`);
+        })
+      )
+      .subscribe();
   }
-
 }

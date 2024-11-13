@@ -2,7 +2,7 @@
   <div class="registerView__content">
     <div class="registerView__content__contentTitles">
       <h1 class="registerView__content__contentTitles__title">
-        Bienvenido a HERP
+        Bienvenido a <span class="titleHERP">HERP</span>
       </h1>
       <h2 class="registerView__content__contentTitles__subtitle">
         Por aqui puedes empezar
@@ -15,15 +15,17 @@
         [formGroup]="formRegistro"
         class="registerView__content__formContent__form"
       >
-        <div>
+        <div class="registerView__content__formContent__form__nombreContent">
           <label>Nombre</label>
           <input formControlName="nombre" type="text" name="nombre" />
         </div>
-        <div>
+        <div class="registerView__content__formContent__form__emailContent">
           <label>email</label>
           <input formControlName="email" type="email" name="email" />
         </div>
-        <div>
+        <div
+          class="registerView__content__formContent__form__contraseñaContent"
+        >
           <label>Contraseña</label>
           <input
             formControlName="contrasena"
@@ -31,7 +33,9 @@
             name="contrasena"
           />
         </div>
-        <div>
+        <div
+          class="registerView__content__formContent__form__confirmarContraseñaContent"
+        >
           <label>Confirmar Contraseña</label>
           <input
             formControlName="confirmarContrasena"
@@ -40,10 +44,12 @@
           />
         </div>
 
-        <div>
+        <div class="registerView__content__formContent__form__accesoContent">
           <button type="submit">Registrar</button>
         </div>
       </form>
+      <p>¿Ya tienes cuenta?</p>
+      <a [routerLink]="['/auth/login']"> Ingresa aquí</a>
     </div>
   </div>
 </div>

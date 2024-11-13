@@ -1,0 +1,40 @@
+@import "../../../../styles/variables.scss";
+@import "./register-page.component.scss";
+
+@media (max-width: $screen-sm-max) {
+  .registerView {
+    &__content {
+      width: 100%;
+      margin: 10%;
+      padding: 10px;
+
+      &__contentTitles {
+        &__title {
+        }
+
+        &__subtitle {
+        }
+      }
+      &__formContent {
+        &__form {
+          width: 100%;
+
+          &__nombreContent {
+          }
+
+          &__emailContent {
+          }
+
+          &__contraseñaContent {
+          }
+
+          &__confirmarContraseñaContent {
+          }
+
+          &__accesoContent {
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 @import "../../../../styles/variables.scss";
 @import "./login-page.component.scss";
 
-@media (max-width: 600px) {
+@media (max-width: $screen-sm-max) {
   .loginView {
     &__content {
       width: 100%;
