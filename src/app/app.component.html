@@ -1,16 +1,14 @@
-<main>
-  <!--
-  <div>
+<main class="mainView">
+  <div class="mainView__navbarContent">
     <app-navbar />
   </div>
-  -->
-  <div>
-    <router-outlet />
-  </div>
-  <!--
-  <div>
-    <app-sidebar />
-  </div>
-  -->
-</main>
+  <div class="mainView__mainContent">
+    <div class="mainView__mainContent__sidebarContent">
+      <app-sidebar />
+    </div>
 
+    <div class="mainView__mainContent__views">
+      <router-outlet />
+    </div>
+  </div>
+</main>
