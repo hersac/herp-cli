@@ -6,10 +6,9 @@ import { Observable } from 'rxjs';
 import { CrearUsuario } from '../models/usuario';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   private http = inject(HttpClient);
   private baseUrl = 'http://localhost:3000';
   private loginUrl = `${this.baseUrl}/auth/login`;
@@ -21,5 +20,11 @@ export class AuthService {
 
   registro(nuevoUsuario: CrearUsuario): Observable<any> {
     return this.http.post<any>(this.registroUrl, nuevoUsuario);
+  }
+
+  recuperarContrasena(email: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/auth/recuperar-contrasena`, {
+      email,
+    });
   }
 }

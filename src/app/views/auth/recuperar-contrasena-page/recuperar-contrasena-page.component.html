@@ -1,1 +1,40 @@
-<p>recuperar-contrasena-page works!</p>
+<div class="recuperarView">
+  <div class="recuperarView__content">
+    <div class="recuperarView__content__contentTitles">
+      <h1 class="recuperarView__content__contentTitles__title">
+        ¿Olvidaste tu contraseña?
+      </h1>
+      <p class="recuperarView__content__contentTitles__subtitle">
+        Ingresa tu correo electrónico y te enviaremos un enlace para restablecer
+        tu contraseña
+      </p>
+    </div>
+
+    <div class="recuperarView__content__formContent">
+      <form
+        (submit)="recuperarContrasena()"
+        [formGroup]="formRecuperar"
+        class="recuperarView__content__formContent__form"
+      >
+        <div class="recuperarView__content__formContent__form__emailContent">
+          <label>Email</label>
+          <input formControlName="email" type="email" name="email" />
+        </div>
+
+        <div class="recuperarView__content__formContent__form__accesoContent">
+          <button type="submit" class="btn-primary">Recuperar</button>
+        </div>
+      </form>
+      <p>
+        <span>¿No tienes cuenta?</span>
+        <span>
+          <a [routerLink]="['/auth/register']"> Registrate </a>
+        </span>
+      </p>
+      <p>
+        <span>¿Ya tienes cuenta?</span>
+        <span><a [routerLink]="['/auth/login']"> Ingresa aquí</a></span>
+      </p>
+    </div>
+  </div>
+</div>

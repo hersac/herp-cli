@@ -1,0 +1,80 @@
+.recuperarView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 98.3vh;
+
+  &__content {
+    padding: 10px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: $spacer;
+    box-shadow: $box-shadow-lg;
+    border-radius: 10px;
+    min-width: 50%;
+
+    &__contentTitles {
+      display: flex;
+      flex-direction: column;
+      gap: $spacer-half;
+
+      &__title {
+        font-size: 50px;
+
+        .titleHERP {
+          color: $primary-color;
+        }
+      }
+
+      &__subtitle {
+        color: $text-color;
+        font-size: 20px;
+      }
+    }
+
+    &__formContent {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $spacer;
+
+      &__form {
+        display: flex;
+        flex-direction: column;
+        gap: $spacer;
+        min-width: 60%;
+
+        &__nombreContent {
+          display: flex;
+          flex-direction: column;
+          gap: $spacer-half;
+        }
+
+        &__emailContent {
+          display: flex;
+          flex-direction: column;
+          gap: $spacer-half;
+        }
+
+        &__contraseñaContent {
+          display: flex;
+          flex-direction: column;
+          gap: $spacer-half;
+        }
+
+        &__confirmarContraseñaContent {
+          display: flex;
+          flex-direction: column;
+          gap: $spacer-half;
+        }
+
+        &__accesoContent {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
