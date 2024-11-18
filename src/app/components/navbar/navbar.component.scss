@@ -1,0 +1,37 @@
+@import "../../../styles/variables.scss";
+
+.navbar {
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+
+  &__logoContent {
+    width: 300px;
+    background-color: blue;
+    &__logo {
+    }
+  }
+
+  &__menuContent {
+    width: 100%;
+    &__listaContent {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      list-style: none;
+
+      &__opcion {
+        &__url {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  &__logoutContent {
+    &__logoutBtn {
+    }
+  }
+}
