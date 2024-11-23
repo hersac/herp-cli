@@ -1,1 +1,54 @@
-<p>sidebar works!</p>
+<div class="sidebar">
+  <div class="sidebar__headerContent">
+    <div class="sidebar__headerContent__avatarContent">
+      <fa-icon
+        [icon]="faUser"
+        class="sidebar__headerContent__avatarContent__icon"
+      />
+    </div>
+    <div class="sidebar__headerContent__fullNameUser">Heriberto Sanchez</div>
+  </div>
+
+  <div class="sidebar__modulosContent">
+    <ul class="sidebar__modulosContent__lista">
+      @for (modulo of menu; let index = $index; track index) {
+      <li
+        class="sidebar__modulosContent__lista__opcion"
+        (click)="seleccionarModulo(modulo)"
+      >
+        <a
+          [routerLink]="[modulo.url]"
+          class="sidebar__modulosContent__lista__opcion__link"
+        >
+          <span class="sidebar__modulosContent__lista__opcion__link__icon">
+            <fa-icon [icon]="modulo.icon" />
+          </span>
+          <span class="sidebar__modulosContent__lista__opcion__link__title">
+            {{ modulo.title }}
+          </span>
+        </a>
+      </li>
+      }
+    </ul>
+  </div>
+
+  <div class="sidebar__footer">
+    <div class="sidebar__footer__settingsContent">
+      <button class="sidebar__footer__settingsContent__btn">
+        <fa-icon
+          [icon]="faGear"
+          class="sidebar__footer__settingsContent__btn__icon"
+        />
+      </button>
+    </div>
+    <div class="sidebar__footer__crContent">Heriberto Sanchez &copy; 2024</div>
+    <div class="sidebar__footer__themeContent">
+      <button class="sidebar__footer__themeContent__btn">
+        <fa-icon
+          [icon]="faSliders"
+          class="sidebar__footer__themeContent__btn__icon"
+        />
+      </button>
+    </div>
+  </div>
+</div>

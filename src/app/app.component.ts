@@ -8,8 +8,17 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   standalone: true,
   imports: [RouterOutlet, NavbarComponent, SidebarComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'herp-cli';
+  submodulo = [];
+
+  seleccionarModulo(modulo: any) {
+    if (!modulo.submodulo) {
+      return;
+    }
+    this.submodulo = modulo.submodulo;
+    console.log(this.submodulo);
+  }
 }

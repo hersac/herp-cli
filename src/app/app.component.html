@@ -1,10 +1,10 @@
 <main class="mainView">
   <div class="mainView__navbarContent">
-    <app-navbar />
+    <app-navbar [submodulos]="submodulo" />
   </div>
   <div class="mainView__mainContent">
     <div class="mainView__mainContent__sidebarContent">
-      <app-sidebar />
+      <app-sidebar (seleccionar)="seleccionarModulo($event)" />
     </div>
 
     <div class="mainView__mainContent__views">

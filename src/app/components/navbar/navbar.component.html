@@ -11,37 +11,22 @@
     </div>
     <div class="navbar__menuContent">
       <ul class="navbar__menuContent__listaContent">
+        @for (submodulo of submodulos; let index = $index; track index) {
         <li class="navbar__menuContent__listaContent__opcion">
-          <a href="#" class="navbar__menuContent__listaContent__opcion__url"
-            >Incio</a
+          <a
+            [routerLink]="[submodulo.url]"
+            class="navbar__menuContent__listaContent__opcion__url"
+            >{{ submodulo.title }}</a
           >
         </li>
-        <li class="navbar__menuContent__listaContent__opcion">
-          <a href="#" class="navbar__menuContent__listaContent__opcion__url"
-            >Comercial</a
-          >
-        </li>
-        <li class="navbar__menuContent__listaContent__opcion">
-          <a href="#" class="navbar__menuContent__listaContent__opcion__url"
-            >Financiero</a
-          >
-        </li>
-        <li class="navbar__menuContent__listaContent__opcion">
-          <a href="#" class="navbar__menuContent__listaContent__opcion__url"
-            >POS</a
-          >
-        </li>
-        <li class="navbar__menuContent__listaContent__opcion">
-          <a href="#" class="navbar__menuContent__listaContent__opcion__url"
-            >Nomina</a
-          >
-        </li>
+        }
       </ul>
     </div>
     <div class="navbar__logoutContent">
-      <button class="navbar__logoutContent__logoutBtn">
-        <fa-icon [icon]="faRightFromBracket" />
-      </button>
+      <fa-icon
+        [icon]="faRightFromBracket"
+        class="navbar__logoutContent__icon"
+      />
     </div>
   </div>
 </main>

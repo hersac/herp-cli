@@ -4,12 +4,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
+  width: 100%;
+  height: 60px;
   background-color: $light-color;
+  box-shadow: $box-shadow-lg;
 
   &__logoContent {
     width: 300px;
     padding: 0 10px;
+    height: 100%;
 
     &__logo {
       width: 100%;
@@ -59,19 +62,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 50px;
 
-    &__logoutBtn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 10px;
-      border-radius: 50%;
-      background-color: $light-color;
+    &__icon {
+      color: $primary-color;
+      font-size: 20px;
+      cursor: pointer;
     }
 
-    &__logoutBtn:hover {
-      background-color: $primary-color;
-      color: $light-color;
+    &__icon:hover {
+      opacity: 0.6;
+    }
+
+    &__icon:active {
+      opacity: 0.8;
     }
   }
 }
