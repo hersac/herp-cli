@@ -6,6 +6,7 @@ import {
   faAddressBook,
   faUserGear,
 } from '@fortawesome/free-solid-svg-icons';
+import { title } from 'process';
 
 export const menu = [
   {
@@ -20,12 +21,36 @@ export const menu = [
     icon: faBoxOpen,
     submodulo: [
       {
+        title: 'Sucursales',
+        url: '/comercial/sucursales',
+      },
+      {
+        title: 'Centros Operación',
+        url: '/comercial/centros-operacion',
+      },
+      {
+        title: 'Instalaciones',
+        url: '/comercial/instalaciones',
+      },
+      {
+        title: 'Bodegas',
+        url: '/comercial/bodegas',
+      },
+      {
         title: 'Items',
         url: '/comercial/items',
       },
       {
-        title: 'Inventario',
-        url: '/comercial/inventario',
+        title: 'Compras',
+        url: '/comercial/compras',
+      },
+      {
+        title: 'Ventas',
+        url: '/comercial/ventas',
+      },
+      {
+        title: 'Consultas',
+        url: '/comercial/consultas',
       },
     ],
   },
