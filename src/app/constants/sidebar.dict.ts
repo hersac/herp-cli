@@ -58,24 +58,96 @@ export const menu = [
     title: 'Financiero',
     url: '/financiero',
     icon: faDollarSign,
-    submodulo: [],
+    submodulo: [
+      {
+        title: 'Cuentas',
+        url: '/financiero/cuentas',
+      },
+      {
+        title: 'Movimientos',
+        url: '/financiero/movimientos',
+      },
+      {
+        title: 'Cobros',
+        url: '/financiero/cobros',
+      },
+      {
+        title: 'Pagos',
+        url: '/financiero/pagos',
+      },
+      {
+        title: 'Cajas',
+        url: '/financiero/cajas',
+      },
+      {
+        title: 'Presupuesto',
+        url: '/financiero/presupuesto',
+      },
+      {
+        title: 'Consultas',
+        url: '/financiero/consultas',
+      },
+    ],
   },
   {
     title: 'POS',
     url: '/pos',
     icon: faCashRegister,
-    submodulo: [],
+    submodulo: [
+      {
+        title: 'Clientes',
+        url: '/pos/clientes',
+      },
+      {
+        title: 'Ventas',
+        url: '/pos/ventas',
+      },
+      {
+        title: 'Devoluciones',
+        url: '/pos/devoluciones',
+      },
+      {
+        title: 'Consultas',
+        url: '/pos/consultas',
+      },
+    ],
   },
   {
     title: 'Nomina',
     url: '/nomina',
     icon: faAddressBook,
-    submodulo: [],
+    submodulo: [
+      {
+        title: 'Empleados',
+        url: '/nomina/empleados',
+      },
+      {
+        title: 'Cargos',
+        url: '/nomina/cargos',
+      },
+      {
+        title: 'Nominas',
+        url: '/nomina/nominas',
+      },
+      {
+        title: 'Consultas',
+        url: '/nomina/consultas',
+      },
+    ],
   },
   {
     title: 'Usuarios',
     url: '/usuarios',
     icon: faUserGear,
-    submodulo: [],
+    submodulo: [
+      {
+        title: 'Gestion Usuarios',
+        url: '/usuarios/gestion-usuarios',
+      },
+      {
+        title: 'Roles',
+        url: '/usuarios/roles',
+      },
+    ],
   },
 ];
