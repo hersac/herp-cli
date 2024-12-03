@@ -19,6 +19,5 @@ export class AppComponent {
       return;
     }
     this.submodulo = modulo.submodulo;
-    console.log(this.submodulo);
   }
 }

@@ -1,0 +1,41 @@
+<div class="filtroComponent">
+  <form [formGroup]="filtrosForm" class="filtroComponent__selectores">
+    <div class="filtroComponent__selectores__selectContent">
+      <select
+        formControlName="compania"
+        class="filtroComponent__selectores__selectContent__selectInput"
+        (change)="selectCompania()"
+        (blur)="selectCompania()"
+      >
+        @for(compania of companias; track compania){
+        <option [value]="compania.id">{{ compania.nombre }}</option>
+        }
+      </select>
+    </div>
+    <div class="filtroComponent__selectores__selectContent">
+      <select
+        formControlName="sucursal"
+        class="filtroComponent__selectores__selectContent__selectInput"
+        (change)="selectSucursal()"
+        (blur)="selectSucursal()"
+      >
+        <option value="1">Opción 1</option>
+        <option value="2">Opción 2</option>
+        <option value="3">Opción 3</option>
+      </select>
+    </div>
+    <div class="filtroComponent__selectores__buttonContent">
+      <button
+        type="button"
+        class="filtroComponent__selectores__buttonContent__btn"
+        title="Limpiar Filtros"
+        (click)="limpiarFiltros()"
+      >
+        <fa-icon
+          [icon]="faBroom"
+          class="filtroComponent__selectores__buttonContent__btn__icon"
+        />
+      </button>
+    </div>
+  </form>
+</div>

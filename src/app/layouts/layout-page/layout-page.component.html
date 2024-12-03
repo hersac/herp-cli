@@ -1,0 +1,17 @@
+<div>
+  <app-layout-base>
+    <div title>
+      <ng-content select="[titulo]"></ng-content>
+    </div>
+    <div content>
+      <div>
+        <div>
+          <ng-content select="[filtros]"></ng-content>
+        </div>
+        <div>
+          <ng-content select="[tabla]"></ng-content>
+        </div>
+      </div>
+    </div>
+  </app-layout-base>
+</div>

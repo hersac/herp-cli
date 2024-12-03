@@ -55,3 +55,20 @@ a {
   text-decoration: none;
   color: $primary-color;
 }
+
+select {
+  padding: $spacer-half;
+  border: none;
+  border-radius: $border-radius;
+  background-color: none;
+  width: 100%;
+  height: 40px;
+}
+
+select:focus {
+  outline: none;
+}
+
+select:active {
+  outline: none;
+}

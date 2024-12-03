@@ -1,0 +1,30 @@
+.layoutBase {
+  height: 87vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__title {
+    height: 80px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    padding: 20px;
+    height: 100%;
+  }
+
+  &__footer {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & hr {
+    border: none;
+    height: 0.5px;
+    background-color: #cacacab9;
+  }
+}

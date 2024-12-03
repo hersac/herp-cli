@@ -1,0 +1,81 @@
+@import "../../../styles/variables.scss";
+
+.filtroComponent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__selectores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 50%;
+
+    &__selectContent {
+      width: 50%;
+      &__selectInput {
+        border: 1px solid $primary-color;
+      }
+
+      &__selectInput:focus {
+        border: 1.5px solid $primary-color;
+        box-shadow: 0 0px 3px $primary-color;
+      }
+    }
+
+    &__buttonContent {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &__btn {
+        background-color: $primary-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $border-radius-circle;
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        box-shadow: $box-shadow-md;
+        color: white;
+        font-size: 20px;
+        transform: rotate(-40deg);
+        transition: all 0.2s;
+
+        &__icon {
+        }
+      }
+
+      &__btn:hover {
+        background-color: white;
+        color: $primary-color;
+        font-size: 24px;
+        box-shadow: 0 0px 5px white;
+        animation: rotacion 0.6s linear;
+      }
+
+      &__btn:active {
+        background-color: $primary-color;
+        color: white;
+        box-shadow: 0 0px 5px $primary-color;
+      }
+    }
+  }
+}
+
+@keyframes rotacion {
+  0% {
+    transform: rotate(-40deg);
+  }
+  25% {
+    transform: rotate(-50deg);
+  }
+  50% {
+    transform: rotate(-40deg);
+  }
+  75% {
+    transform: rotate(-30deg);
+  }
+}
