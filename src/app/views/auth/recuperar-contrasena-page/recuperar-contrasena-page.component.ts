@@ -7,7 +7,6 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { CrearUsuario } from '../../../models/usuario';
 import { catchError, map } from 'rxjs';
 
 @Component({

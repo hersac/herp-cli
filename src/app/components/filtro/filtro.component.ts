@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faBroom } from '@fortawesome/free-solid-svg-icons';
 import { ICompania } from '../../models/ICompania';
+import { ISucursal } from '../../models';
 
 @Component({
   selector: 'app-filtro',
@@ -22,9 +23,9 @@ export class FiltroComponent {
   faBroom = faBroom;
 
   @Input() companias: Array<ICompania> = [];
-  @Input() sucursales: Array<Object> = [];
-  @Output() seleccionarCompania = new EventEmitter<Object>();
-  @Output() seleccionarSucursal = new EventEmitter<Object>();
+  @Input() sucursales: Array<ISucursal> = [];
+  @Output() seleccionarCompania = new EventEmitter<ICompania>();
+  @Output() seleccionarSucursal = new EventEmitter<ISucursal>();
 
   filtrosForm: FormGroup = new FormBuilder().group({
     compania: [{}],
@@ -32,6 +33,7 @@ export class FiltroComponent {
   });
 
   selectCompania() {
+    console.log('dato1:', this.filtrosForm.get('compania')?.value);
     this.seleccionarCompania.emit(this.filtrosForm.get('compania')?.value);
   }
 

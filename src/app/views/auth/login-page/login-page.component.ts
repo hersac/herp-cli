@@ -5,10 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { LoginRequest } from '../../../models/login-request';
+import { ILoginRequest, ITokenResponse } from '../../../models';
 import { AuthService } from '../../../services/auth.service';
 import { catchError, map } from 'rxjs';
-import { TokenResponse } from '../../../models/token';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
@@ -31,12 +30,12 @@ export class LoginPageComponent {
     if (this.formLogin.invalid) {
       return;
     }
-    const credenciales: LoginRequest = this.formLogin.value;
+    const credenciales: ILoginRequest = this.formLogin.value;
 
     this.authService
       .login(credenciales)
       .pipe(
-        map((token: TokenResponse) => {
+        map((token: ITokenResponse) => {
           sessionStorage.setItem('token', token.token);
           this.router.navigate(['/']);
         }),

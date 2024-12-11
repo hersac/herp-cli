@@ -16,11 +16,17 @@
       width: 50%;
       &__selectInput {
         border: 1px solid $primary-color;
-      }
+        font-size: 18px;
+        appearance: none;
 
-      &__selectInput:focus {
-        border: 1.5px solid $primary-color;
-        box-shadow: 0 0px 3px $primary-color;
+        & option {
+          font-size: 18px;
+        }
+
+        &:focus {
+          border: 1.5px solid $primary-color;
+          box-shadow: 0 0px 3px $primary-color;
+        }
       }
     }
 

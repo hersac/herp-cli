@@ -17,11 +17,10 @@
         formControlName="sucursal"
         class="filtroComponent__selectores__selectContent__selectInput"
         (change)="selectSucursal()"
-        (blur)="selectSucursal()"
       >
-        <option value="1">Opción 1</option>
-        <option value="2">Opción 2</option>
-        <option value="3">Opción 3</option>
+        @for(sucursal of sucursales; track sucursal){
+        <option [value]="sucursal">{{ sucursal.nombre }}</option>
+        }
       </select>
     </div>
     <div class="filtroComponent__selectores__buttonContent">

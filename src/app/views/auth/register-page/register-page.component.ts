@@ -7,7 +7,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { CrearUsuario } from '../../../models/usuario';
+import { ICrearUsuario } from '../../../models';
 import { catchError, map } from 'rxjs';
 
 @Component({
@@ -32,7 +32,7 @@ export class RegisterPageComponent {
     if (this.formRegistro.invalid) {
       return;
     }
-    const nuevoUsuario: CrearUsuario = this.formRegistro.value;
+    const nuevoUsuario: ICrearUsuario = this.formRegistro.value;
     console.log(nuevoUsuario);
     this.authService
       .registro(nuevoUsuario)
