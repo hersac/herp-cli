@@ -8,9 +8,7 @@ import {
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faBroom } from '@fortawesome/free-solid-svg-icons';
-import { ICompania } from '../../models/ICompania';
-import { ISucursal } from '../../models';
-
+import { ICompania, ISucursal } from '../../models';
 @Component({
   selector: 'app-filtro',
   standalone: true,
@@ -28,18 +26,21 @@ export class FiltroComponent {
   @Output() seleccionarSucursal = new EventEmitter<ISucursal>();
 
   filtrosForm: FormGroup = new FormBuilder().group({
-    compania: [{}],
-    sucursal: [{}],
-  });
+    compania: [null],
+   sucursal: [null],
+  });   
 
   selectCompania() {
-    console.log('dato1:', this.filtrosForm.get('compania')?.value);
-    this.seleccionarCompania.emit(this.filtrosForm.get('compania')?.value);
+    const companiaSeleccionada = this.filtrosForm.get('compania')?.value;
+    this.seleccionarCompania.emit(companiaSeleccionada);
   }
 
   selectSucursal() {
-    this.seleccionarSucursal.emit(this.filtrosForm.get('sucursal')?.value);
+    const sucursalSeleccionada = this.filtrosForm.get('sucursal')?.value;
+    this.seleccionarSucursal.emit(sucursalSeleccionada);
   }
 
-  limpiarFiltros() {}
+  limpiarFiltros() {
+    this.filtrosForm.reset();
+  }
 }

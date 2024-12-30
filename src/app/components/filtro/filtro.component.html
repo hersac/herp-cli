@@ -7,8 +7,8 @@
         (change)="selectCompania()"
         (blur)="selectCompania()"
       >
-        @for(compania of companias; track compania){
-        <option [value]="compania.id">{{ compania.nombre }}</option>
+        @for(compania of companias; track compania.id){
+        <option [ngValue]="compania">{{ compania.nombre }}</option>
         }
       </select>
     </div>
@@ -18,8 +18,8 @@
         class="filtroComponent__selectores__selectContent__selectInput"
         (change)="selectSucursal()"
       >
-        @for(sucursal of sucursales; track sucursal){
-        <option [value]="sucursal">{{ sucursal.nombre }}</option>
+        @for(sucursal of sucursales; track sucursal.id){
+        <option [ngValue]="sucursal">{{ sucursal.nombre }}</option>
         }
       </select>
     </div>

@@ -1,0 +1,41 @@
+<div class="table-wrapper">
+  <table class="table">
+    <thead>
+      <tr>
+        <th *ngFor="let header of headers">
+          <ng-container
+            *ngTemplateOutlet="
+              headerTemplate || defaultHeaderTemplate;
+              context: { $implicit: header }
+            "
+          >
+          </ng-container>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(row of data; track row) {
+      <tr>
+        @for(header of headers; track header) {
+        <td>
+          <ng-container
+            *ngTemplateOutlet="
+              cellTemplate || defaultCellTemplate;
+              context: { $implicit: row[header.key], row: row, header: header }
+            "
+          >
+          </ng-container>
+        </td>
+        }
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<ng-template #defaultHeaderTemplate let-header>
+  {{ header.titulo }}
+</ng-template>
+<ng-template #defaultCellTemplate let-cell>
+  {{ cell }}
+</ng-template>
