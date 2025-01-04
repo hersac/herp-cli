@@ -1,0 +1,23 @@
+@import "../../../styles/variables.scss";
+
+.table-wrapper {
+	& .table {
+		min-width: 100%;
+		border-collapse: collapse;
+		background-color: $background-color;
+
+		& th {
+			text-align: center;
+			border: 2px solid $primary-color;
+			padding: $spacer-half;
+			background-color: $primary-color;
+			color: $light-color;
+		}
+
+		& td {
+			text-align: center;
+			border: 2px solid $primary-color;
+			padding: $spacer-half;
+		}
+	}
+}

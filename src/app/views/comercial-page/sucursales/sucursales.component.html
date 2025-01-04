@@ -15,7 +15,46 @@
     </div>
     <div tabla>
       <div>
-        <app-tabla [headers]="headers" [data]="data" />
+<app-tabla [headers]="headers" [data]="data">
+  <ng-template #id let-header="header" id="id">
+    <!-- Plantilla personalizada para el encabezado con key 'id' -->
+    <div>
+      <span>{{ header.titulo }}</span>
+      <span>Custom ID Header</span>
+    </div>
+  </ng-template>
+
+  <ng-template #nombre let-header="header" id="nombre">
+    <!-- Plantilla personalizada para el encabezado con key 'nombre' -->
+    <div>
+      <span>{{ header.titulo }}</span>
+      <span>Custom Nombre Header</span>
+    </div>
+  </ng-template>
+
+  <ng-template #prueba let-header="header" id="prueba">
+    <!-- Plantilla personalizada para el encabezado con key 'prueba' -->
+    <div>
+      <span>{{ header.titulo }}</span>
+      <span>Custom Prueba Header</span>
+    </div>
+  </ng-template>
+
+  <ng-template #cell-id let-cell="cell" id="cell-id">
+    <!-- Plantilla personalizada para la celda con key 'id' -->
+    <div>{{ cell }} (ID Cell)</div>
+  </ng-template>
+
+  <ng-template #cell-nombre let-cell="cell" id="cell-nombre">
+    <!-- Plantilla personalizada para la celda con key 'nombre' -->
+    <div>{{ cell }} (Nombre Cell)</div>
+  </ng-template>
+
+  <ng-template #cell-prueba let-cell="cell" id="cell-prueba">
+    <!-- Plantilla personalizada para la celda con key 'prueba' -->
+    <div>{{ cell }} (Prueba Cell)</div>
+  </ng-template>
+</app-tabla>
       </div>
     </div>
   </app-layout-page>

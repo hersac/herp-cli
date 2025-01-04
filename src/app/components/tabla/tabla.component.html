@@ -2,32 +2,40 @@
   <table class="table">
     <thead>
       <tr>
-        <th *ngFor="let header of headers">
-          <ng-container
-            *ngTemplateOutlet="
-              headerTemplate || defaultHeaderTemplate;
-              context: { $implicit: header }
-            "
-          >
-          </ng-container>
-        </th>
+        @for(header of headers; track header) {
+        <ng-container>
+          <th>
+            <ng-container
+              *ngTemplateOutlet="
+                getHeaderTemplate(header.key) || defaultHeaderTemplate;
+                context: { $implicit: header }
+              "
+            ></ng-container>
+          </th>
+        </ng-container>
+        }
       </tr>
     </thead>
     <tbody>
       @for(row of data; track row) {
-      <tr>
-        @for(header of headers; track header) {
-        <td>
-          <ng-container
-            *ngTemplateOutlet="
-              cellTemplate || defaultCellTemplate;
-              context: { $implicit: row[header.key], row: row, header: header }
-            "
-          >
+
+
+      <ng-container>
+        <tr>
+          @for(header of headers; track header) {
+          <ng-container>
+            <td>
+              <ng-container
+                *ngTemplateOutlet="
+                  getCellTemplate(header.key) || defaultCellTemplate;
+                  context: { $implicit: row[header.key], row: row, header: header }
+                "
+              ></ng-container>
+            </td>
           </ng-container>
-        </td>
         }
-      </tr>
+        </tr>
+      </ng-container>
       }
     </tbody>
   </table>
@@ -36,6 +44,7 @@
 <ng-template #defaultHeaderTemplate let-header>
   {{ header.titulo }}
 </ng-template>
+
 <ng-template #defaultCellTemplate let-cell>
   {{ cell }}
 </ng-template>
