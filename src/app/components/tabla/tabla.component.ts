@@ -20,13 +20,19 @@ export class TablaComponent {
   @Input() headers: Array<any> = [];
   @Input() data: Array<any> = [];
   @Input() loading: boolean = false;
-  @ContentChildren(TemplateRef) templates: QueryList<TemplateRef<any>> | undefined;
+  @ContentChildren(TemplateRef) templates:
+    | QueryList<TemplateRef<any>>
+    | undefined;
 
   getHeaderTemplate(headerKey: string): TemplateRef<any> | undefined {
-    return this.templates?.find((template: any) => template['id'] === headerKey);
+    return this.templates?.find(
+      (template: any) => template['id'] === headerKey
+    );
   }
 
   getCellTemplate(headerKey: string): TemplateRef<any> | undefined {
-    return this.templates?.find((template: any) => template['id'] === `cell-${headerKey}`);
+    return this.templates?.find(
+      (template: any) => template['id'] === `cell${headerKey}`
+    );
   }
 }
