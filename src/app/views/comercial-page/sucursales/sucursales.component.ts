@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import { LayoutPageComponent } from '../../../layouts/layout-page/layout-page.component';
 import { FiltroComponent } from '../../../components/filtro/filtro.component';
 import { TablaComponent } from '../../../components/tabla/tabla.component';
@@ -23,7 +28,7 @@ export class SucursalesComponent {
           nombre: 'Sucursal 1',
         },
         {
-          id: 2,    
+          id: 2,
           nombre: 'Sucursal 2',
         },
       ],
@@ -79,11 +84,13 @@ export class SucursalesComponent {
 
   sucursales: Array<ISucursal> = [];
 
-  selccionarCompania(compania: ICompania) {
+  @ViewChild('nombreTemplate') nombreTemplate?: TemplateRef<any>;
+
+  seleccionarCompania(compania: ICompania) {
     this.sucursales = compania.sucursales as Array<ISucursal>;
   }
- 
-  selccionarSucursal(sucursal: ISucursal) {
+
+  seleccionarSucursal(sucursal: ISucursal) {
     console.log(sucursal);
   }
 }

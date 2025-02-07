@@ -1,5 +1,6 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ContentChildren,
@@ -11,28 +12,33 @@ import {
 @Component({
   selector: 'app-tabla',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgTemplateOutlet],
   templateUrl: './tabla.component.html',
   styleUrls: ['./tabla.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TablaComponent {
-  @Input() headers: Array<any> = [];
+export class TablaComponent implements AfterViewInit {
+  @Input() headers: Array<{ key: string; titulo: string }> = [];
   @Input() data: Array<any> = [];
   @Input() loading: boolean = false;
-  @ContentChildren(TemplateRef) templates:
-    | QueryList<TemplateRef<any>>
-    | undefined;
 
-  getHeaderTemplate(headerKey: string): TemplateRef<any> | undefined {
-    return this.templates?.find(
-      (template: any) => template['id'] === headerKey
-    );
+  @ContentChildren(TemplateRef) templates!: QueryList<TemplateRef<any>>;
+  private templateMap: Map<string, TemplateRef<any>> = new Map();
+
+  ngAfterViewInit(): void {
+    this.setTemplate();
   }
 
-  getCellTemplate(headerKey: string): TemplateRef<any> | undefined {
-    return this.templates?.find(
-      (template: any) => template['id'] === `cell${headerKey}`
-    );
+  getTemplate(name: string): TemplateRef<any> | null {
+    return this.templateMap.get(`${name}Template`) || null;
+  }
+
+  private setTemplate(): void {
+    this.templates.forEach((template, index) => {
+      const headerKey = this.headers[index]?.key;
+      if (headerKey) {
+        this.templateMap.set(headerKey, template);
+      }
+    });
   }
 }

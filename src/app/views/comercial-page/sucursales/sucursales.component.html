@@ -8,19 +8,16 @@
         <app-filtro
           [companias]="companias"
           [sucursales]="sucursales"
-          (seleccionarCompania)="selccionarCompania($event)"
-          (seleccionarSucursal)="selccionarSucursal($event)"
+          (seleccionarCompania)="seleccionarCompania($event)"
+          (seleccionarSucursal)="seleccionarSucursal($event)"
         />
       </div>
     </div>
     <div tabla>
       <div>
         <app-tabla [headers]="headers" [data]="data">
-          <ng-template #defaultHeaderTemplate let-header>
-            {{ header.titulo }}
-          </ng-template>
-          <ng-template #defaultCellTemplate let-cell>
-            {{ cell }}
+          <ng-template #nombreTemplate let-item>
+            <span>{{ item.nombre }}</span>
           </ng-template>
         </app-tabla>
       </div>

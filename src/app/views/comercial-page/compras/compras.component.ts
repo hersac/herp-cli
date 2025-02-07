@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+
+} from '@angular/core';
 
 @Component({
   selector: 'app-compras',
@@ -6,8 +10,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [],
   templateUrl: './compras.component.html',
   styleUrl: './compras.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ComprasComponent {
-
-}
+export class ComprasComponent {}

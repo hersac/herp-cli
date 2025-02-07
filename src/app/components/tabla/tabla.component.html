@@ -1,50 +1,30 @@
-<div class="table-wrapper">
-  <table class="table">
+<div>
+  <table>
     <thead>
       <tr>
-        @for(header of headers; track header) {
-        <ng-container>
-          <th>
-            <ng-container
-              *ngTemplateOutlet="
-                getHeaderTemplate(header.key) || defaultHeaderTemplate;
-                context: { $implicit: header }
-              "
-            ></ng-container>
-          </th>
-        </ng-container>
+        @for (header of headers; track header.key) {
+        <th>{{ header.titulo }}</th>
         }
       </tr>
     </thead>
     <tbody>
-      @for(row of data; track row) {
-
-
-      <ng-container>
-        <tr>
-          @for(header of headers; track header) {
-          <ng-container>
-            <td>
-              <ng-container
-                *ngTemplateOutlet="
-                  getCellTemplate(header.key) || defaultCellTemplate;
-                  context: { $implicit: row[header.key], row: row, header: header }
-                "
-              ></ng-container>
-            </td>
-          </ng-container>
-        }
-        </tr>
-      </ng-container>
+      @for (item of data; track item.id) {
+      <tr>
+        @for (header of headers; track header.key) {
+        @if(getTemplate(header.key)) {
+        <td>
+          <ng-container
+            *ngTemplateOutlet="
+              getTemplate(header.key);
+              context: { $implicit: item }
+            "
+          ></ng-container>
+        </td>
+        } @else {
+        <td>{{ item[header.key] }}</td>
+        } }
+      </tr>
       }
     </tbody>
   </table>
 </div>
-
-<ng-template #defaultHeaderTemplate let-header>
-  {{ header.titulo }}
-</ng-template>
-
-<ng-template #defaultCellTemplate let-cell>
-  {{ cell }}
-</ng-template>
