@@ -1,6 +1,6 @@
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import {
-  AfterViewInit,
+  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   ContentChildren,
@@ -17,7 +17,7 @@ import {
   styleUrls: ['./tabla.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TablaComponent implements AfterViewInit {
+export class TablaComponent implements AfterContentInit {
   @Input() headers: Array<{ key: string; titulo: string }> = [];
   @Input() data: Array<any> = [];
   @Input() loading: boolean = false;
@@ -25,19 +25,20 @@ export class TablaComponent implements AfterViewInit {
   @ContentChildren(TemplateRef) templates!: QueryList<TemplateRef<any>>;
   private templateMap: Map<string, TemplateRef<any>> = new Map();
 
-  ngAfterViewInit(): void {
+  ngAfterContentInit(): void {
     this.setTemplate();
   }
 
   getTemplate(name: string): TemplateRef<any> | null {
-    return this.templateMap.get(`${name}Template`) || null;
+    return this.templateMap.get(name) || null;
   }
 
   private setTemplate(): void {
-    this.templates.forEach((template, index) => {
-      const headerKey = this.headers[index]?.key;
-      if (headerKey) {
-        this.templateMap.set(headerKey, template);
+    this.templates.forEach((template) => {
+      const templateName = (template as any)._declarationTContainer
+        ?.localNames?.[0];
+      if (templateName) {
+        this.templateMap.set(templateName, template);
       }
     });
   }

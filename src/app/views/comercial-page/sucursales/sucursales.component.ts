@@ -84,8 +84,6 @@ export class SucursalesComponent {
 
   sucursales: Array<ISucursal> = [];
 
-  @ViewChild('nombreTemplate') nombreTemplate?: TemplateRef<any>;
-
   seleccionarCompania(compania: ICompania) {
     this.sucursales = compania.sucursales as Array<ISucursal>;
   }

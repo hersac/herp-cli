@@ -10,18 +10,18 @@
     <tbody>
       @for (item of data; track item.id) {
       <tr>
-        @for (header of headers; track header.key) {
-        @if(getTemplate(header.key)) {
+        @for (header of headers; track header.key) { @if( getTemplate(header.key
+        + 'Template') ) {
         <td>
           <ng-container
-            *ngTemplateOutlet="
-              getTemplate(header.key);
-              context: { $implicit: item }
-            "
+            [ngTemplateOutlet]="getTemplate(header.key + 'Template')"
+            [ngTemplateOutletContext]="{$implicit: item }"
           ></ng-container>
         </td>
         } @else {
-        <td>{{ item[header.key] }}</td>
+        <td>
+          {{ item[header.key] }}
+        </td>
         } }
       </tr>
       }

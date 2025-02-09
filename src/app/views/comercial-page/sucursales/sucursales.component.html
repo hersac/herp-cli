@@ -16,8 +16,18 @@
     <div tabla>
       <div>
         <app-tabla [headers]="headers" [data]="data">
+          <ng-template #idTemplate let-item>
+            <div>{{ item.id }}</div>
+          </ng-template>
+
           <ng-template #nombreTemplate let-item>
-            <span>{{ item.nombre }}</span>
+            <div>{{ item.nombre }}</div>
+          </ng-template>
+
+          <ng-template #pruebaTemplate let-item>
+            <div>
+              {{item.prueba}}
+            </div>
           </ng-template>
         </app-tabla>
       </div>
