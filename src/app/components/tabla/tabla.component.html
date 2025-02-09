@@ -1,5 +1,5 @@
-<div>
-  <table>
+<div class="table-wrapper">
+  <table class="table">
     <thead>
       <tr>
         @for (header of headers; track header.key) {
@@ -15,7 +15,7 @@
         <td>
           <ng-container
             [ngTemplateOutlet]="getTemplate(header.key + 'Template')"
-            [ngTemplateOutletContext]="{$implicit: item }"
+            [ngTemplateOutletContext]="{ $implicit: item }"
           ></ng-container>
         </td>
         } @else {
